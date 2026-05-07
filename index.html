@@ -340,29 +340,28 @@ Reglas críticas:
 - Los ganchos deben ser imposibles de ignorar
 - SOLO JSON`;
 
-  const GEMINI_KEY = 'AIzaSyBEzUEOPxnjbbStBORQJal_cF62KWnSWPo';
-
   try{
-    const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${GEMINI_KEY}`,{
+    const res = await fetch('/api/generate',{
       method:'POST',
       headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({
-        contents:[{parts:[{text:prompt}]}],
-        generationConfig:{temperature:0.9,maxOutputTokens:1500}
-      })
+      body:JSON.stringify({prompt})
     });
     const data = await res.json();
-    const raw = data.candidates?.[0]?.content?.parts?.[0]?.text||'';
+    if(data.error) throw new Error(data.error);
+    const raw = data.text||'';
+    if(!raw) throw new Error('Respuesta vacía');
     const clean = raw.replace(/```json|```/g,'').trim();
-    const parsed = JSON.parse(clean);
+    let parsed;
+    try{ parsed = JSON.parse(clean); }
+    catch(je){ throw new Error('Error al procesar respuesta'); }
+    if(!parsed.variations) throw new Error('Formato inesperado');
     setLoading(false);
     renderResults(parsed.variations);
   } catch(e){
     setLoading(false);
     const el = document.getElementById('errMsg');
-    el.textContent = '⚠️ Ocurrió un error. Por favor intenta de nuevo.';
+    el.textContent = '⚠️ '+e.message;
     el.classList.remove('hidden');
-    console.error(e);
   }
 }
 
