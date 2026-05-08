@@ -280,30 +280,40 @@ async function generate(){
   const tone=document.getElementById('tone').value;
   const lang=document.getElementById('lang').value;
 
-  const ctLabels={caption:'caption/post viral',bio:'bio de perfil impactante',hook:'gancho viral (primera línea que detiene el scroll)',thread:'hilo/thread con 4-5 puntos',hashtags:'estrategia de hashtags optimizada',pack:'pack completo (caption + gancho + bio corta + hashtags)'};
+  const instrucciones={
+    caption:`Escribe 3 captions/posts completos y diferentes para ${platform}. Cada uno debe tener estructura distinta: uno con pregunta al final, uno con lista de puntos, uno con historia personal. Incluye emojis. Longitud apropiada para ${platform}.`,
+    bio:`Escribe 3 bios de perfil cortas e impactantes para ${platform}. Máximo 150 caracteres cada una. Sin hashtags. Cada una con un enfoque diferente: una con humor, una profesional, una aspiracional.`,
+    hook:`Escribe 3 ganchos virales — solo la PRIMERA LÍNEA que hace que alguien pare de hacer scroll. Máximo 2 oraciones. Deben ser imposibles de ignorar. Sin hashtags.`,
+    thread:`Escribe 3 hilos/threads completos con 5 puntos numerados cada uno (1/ 2/ 3/ 4/ 5/). Cada hilo con un ángulo diferente del tema. Sin hashtags en el contenido.`,
+    hashtags:`Genera 3 estrategias de hashtags diferentes para ${platform}. Cada una con 15-20 hashtags organizados: primero los más populares (#grande), luego los medianos (#medio), luego los de nicho (#específico). El campo content debe describir la estrategia, el campo hashtags tiene los tags.`,
+    pack:`Crea 3 packs COMPLETOS. Cada pack debe incluir TODO esto claramente separado:
+🎯 GANCHO: [primera línea viral]
+📝 CAPTION: [post completo con emojis]  
+👤 BIO: [bio corta de perfil]
+#️⃣ HASHTAGS: [15 hashtags]
+Cada pack con enfoque completamente diferente.`
+  };
 
-  const prompt=`Eres un experto mundial en marketing de contenidos y redes sociales.
+  const prompt=`Eres un experto mundial en marketing de contenidos para redes sociales.
 
-Genera exactamente 3 variaciones de ${ctLabels[ctype]} para ${platform}.
+TAREA: ${instrucciones[ctype]}
 
-IMPORTANTE: Todo el contenido generado debe estar en ${lang}. No uses otro idioma bajo ninguna circunstancia.
+DATOS:
+- Creador/negocio: ${topic}
+- Plataforma: ${platform}
+- Tono: ${tone}
+- IDIOMA OBLIGATORIO: ${lang} (usa SOLO este idioma en TODO el texto)
 
-Información del creador: ${topic}
-Tono: ${tone}
-Plataforma: ${platform}
-Idioma obligatorio: ${lang}
+INSTRUCCIÓN CRÍTICA: Responde ÚNICAMENTE con el siguiente JSON. Sin explicaciones, sin texto antes o después, sin backticks, sin markdown. Solo el JSON puro:
 
-Responde SOLO con JSON válido sin backticks:
-{"variations":[{"content":"texto en ${lang}","hashtags":"#tag1 #tag2","engagement":"high","reason":"razón del potencial viral en ${lang}"},{"content":"...","hashtags":"...","engagement":"medium","reason":"..."},{"content":"...","hashtags":"...","engagement":"high","reason":"..."}]}
+{"variations":[{"content":"TEXTO AQUÍ EN ${lang}","hashtags":"#tag1 #tag2 #tag3","engagement":"high","reason":"RAZÓN EN ${lang}"},{"content":"TEXTO AQUÍ EN ${lang}","hashtags":"#tag1 #tag2","engagement":"medium","reason":"RAZÓN EN ${lang}"},{"content":"TEXTO AQUÍ EN ${lang}","hashtags":"#tag1 #tag2","engagement":"high","reason":"RAZÓN EN ${lang}"}]}
 
-Reglas:
-- TODO el texto debe estar en ${lang} incluyendo las razones
-- Cada variación notablemente diferente
-- engagement: solo "high", "medium" o "low"
-- Para bio: hashtags=""
-- Usa emojis estratégicamente
-- Adapta el largo a ${platform}
-- SOLO JSON`;
+Reglas finales:
+- engagement solo puede ser: "high", "medium" o "low"  
+- Para bio y hook: hashtags=""
+- Para hashtags: pon todos los tags en el campo hashtags y descripción en content
+- Cada variación NOTABLEMENTE diferente
+- TODO en ${lang}`;
 
   setLoading(true);
   try{
@@ -315,12 +325,22 @@ Reglas:
     const data=await res.json();
     if(data.error) throw new Error(data.error);
     const raw=data.text||'';
-    if(!raw) throw new Error('Respuesta vacía');
-    const clean=raw.replace(/```json|```/g,'').trim();
+    if(!raw) throw new Error('Respuesta vacía del servidor');
+    // Parser robusto — extrae JSON aunque haya texto extra
     let parsed;
-    try{parsed=JSON.parse(clean);}
-    catch(je){throw new Error('Error al procesar respuesta');}
-    if(!parsed.variations) throw new Error('Formato inesperado');
+    try{
+      const clean=raw.replace(/```json|```/g,'').trim();
+      // Intento 1: parseo directo
+      try{parsed=JSON.parse(clean);}catch(e1){
+        // Intento 2: extraer el objeto JSON con regex
+        const match=clean.match(/\{[\s\S]*"variations"[\s\S]*\}/);
+        if(match) parsed=JSON.parse(match[0]);
+        else throw new Error('No se encontró JSON válido');
+      }
+    }catch(je){
+      throw new Error('La IA devolvió una respuesta inválida. Intenta de nuevo.');
+    }
+    if(!parsed||!parsed.variations||!parsed.variations.length) throw new Error('Respuesta incompleta. Intenta de nuevo.');
     setLoading(false);
     addHistory(topic,platform,ctype,lang);
     renderResults(parsed.variations);
