@@ -301,8 +301,8 @@ TAREA: ${instrucciones[ctype]}
 DATOS:
 - Creador/negocio: ${topic}
 - Plataforma: ${platform}
-- Tono: ${tone}
-- IDIOMA OBLIGATORIO: ${lang} (usa SOLO este idioma en TODO el texto)
+- TONO OBLIGATORIO: ${tone.toUpperCase()} — Esto es crítico. Todo el contenido DEBE reflejar este tono claramente. Si el tono es "divertido" usa humor y emojis graciosos. Si es "profesional" usa lenguaje formal. Si es "inspiracional" usa frases motivadoras. Si es "urgente" crea sensación de urgencia. Si es "educativo" aporta valor y datos.
+- IDIOMA OBLIGATORIO: ${lang} — usa SOLO este idioma en TODO el texto sin excepción
 
 INSTRUCCIÓN CRÍTICA: Responde ÚNICAMENTE con el siguiente JSON. Sin explicaciones, sin texto antes o después, sin backticks, sin markdown. Solo el JSON puro:
 
@@ -316,35 +316,39 @@ Reglas finales:
 - TODO en ${lang}`;
 
   setLoading(true);
-  try{
+
+  async function callAPI(p){
     const res=await fetch('/api/generate',{
       method:'POST',
       headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({prompt})
+      body:JSON.stringify({prompt:p})
     });
     const data=await res.json();
     if(data.error) throw new Error(data.error);
     const raw=data.text||'';
-    if(!raw) throw new Error('Respuesta vacía del servidor');
-    // Parser robusto — extrae JSON aunque haya texto extra
+    if(!raw) throw new Error('Respuesta vacía');
+    const clean=raw.replace(/```json|```/g,'').trim();
     let parsed;
-    try{
-      const clean=raw.replace(/```json|```/g,'').trim();
-      // Intento 1: parseo directo
-      try{parsed=JSON.parse(clean);}catch(e1){
-        // Intento 2: extraer el objeto JSON con regex
-        const match=clean.match(/\{[\s\S]*"variations"[\s\S]*\}/);
-        if(match) parsed=JSON.parse(match[0]);
-        else throw new Error('No se encontró JSON válido');
-      }
-    }catch(je){
-      throw new Error('La IA devolvió una respuesta inválida. Intenta de nuevo.');
+    try{parsed=JSON.parse(clean);}catch(e1){
+      const match=clean.match(/\{[\s\S]*?"variations"[\s\S]*?\][\s\S]*?\}/);
+      if(match){try{parsed=JSON.parse(match[0]);}catch(e2){throw new Error('JSON inválido');}}
+      else throw new Error('JSON inválido');
     }
-    if(!parsed||!parsed.variations||!parsed.variations.length) throw new Error('Respuesta incompleta. Intenta de nuevo.');
+    if(!parsed?.variations?.length) throw new Error('Sin variaciones');
+    return parsed;
+  }
+
+  try{
+    let parsed, lastErr;
+    for(let attempt=0;attempt<3;attempt++){
+      try{parsed=await callAPI(prompt);break;}
+      catch(e){lastErr=e;await new Promise(r=>setTimeout(r,800));}
+    }
+    if(!parsed) throw new Error(lastErr?.message||'Error tras 3 intentos. Intenta de nuevo.');
     setLoading(false);
     addHistory(topic,platform,ctype,lang);
     renderResults(parsed.variations);
-  } catch(e){
+  }catch(e){
     setLoading(false);
     const el=document.getElementById('errMsg');
     el.textContent='⚠️ '+e.message;
