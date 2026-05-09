@@ -3,133 +3,187 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ContentAI Studio — Generador de contenido viral con IA</title>
-<meta name="description" content="Genera captions, bios y ganchos virales para Instagram, TikTok, LinkedIn y más con Inteligencia Artificial. Gratis y en segundos.">
+<title>ContentAI Studio — Generador viral con IA</title>
+<meta name="description" content="Genera captions, bios y contenido viral para redes sociales con IA. Gratis y en segundos.">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6659614052628844" crossorigin="anonymous"></script>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 :root{--bg:#07070e;--glass:rgba(255,255,255,0.04);--gb:rgba(255,255,255,0.08);--p1:#8b5cf6;--p2:#ec4899;--p3:#06b6d4;--text:#f8fafc;--muted:#94a3b8}
 body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;min-height:100vh;overflow-x:hidden}
-.orb{position:fixed;border-radius:50%;filter:blur(90px);opacity:.13;animation:float 22s ease-in-out infinite;pointer-events:none;z-index:0}
+.orb{position:fixed;border-radius:50%;filter:blur(90px);opacity:.12;animation:float 22s ease-in-out infinite;pointer-events:none;z-index:0}
 .o1{width:600px;height:600px;background:var(--p1);top:-200px;left:-200px}
 .o2{width:450px;height:450px;background:var(--p2);bottom:-150px;right:-100px;animation-delay:-8s}
 .o3{width:350px;height:350px;background:var(--p3);top:45%;left:55%;animation-delay:-15s}
 @keyframes float{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(25px,-25px) scale(1.04)}66%{transform:translate(-15px,20px) scale(.96)}}
-.wrap{max-width:880px;margin:0 auto;padding:20px 16px;position:relative;z-index:1}
+.wrap{max-width:900px;margin:0 auto;padding:20px 16px;position:relative;z-index:1}
 .ad{background:var(--glass);border:1px solid var(--gb);border-radius:12px;padding:10px 14px;text-align:center;margin-bottom:20px}
 .ad-lbl{font-size:10px;text-transform:uppercase;letter-spacing:1px;color:var(--muted);opacity:.5;margin-bottom:6px}
 .ad-ph{height:56px;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:12px;border:1px dashed var(--gb);border-radius:8px}
-header{text-align:center;padding:44px 0 36px}
-.logo{display:inline-flex;align-items:center;gap:10px;margin-bottom:18px}
+header{text-align:center;padding:36px 0 28px}
+.logo{display:inline-flex;align-items:center;gap:10px;margin-bottom:16px}
 .logo-icon{width:42px;height:42px;background:linear-gradient(135deg,var(--p1),var(--p2));border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:20px;box-shadow:0 0 30px rgba(139,92,246,.35)}
 .logo-name{font-size:20px;font-weight:700;background:linear-gradient(135deg,var(--p1),var(--p2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-header h1{font-size:clamp(26px,5vw,44px);font-weight:800;line-height:1.2;margin-bottom:12px}
+header h1{font-size:clamp(24px,4.5vw,42px);font-weight:800;line-height:1.2;margin-bottom:10px}
 header h1 span{background:linear-gradient(135deg,var(--p1),var(--p2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 header p{color:var(--muted);font-size:15px}
-.stats{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:18px}
-.stat{padding:6px 14px;border-radius:50px;border:1px solid var(--gb);font-size:12px;color:var(--muted);background:rgba(255,255,255,.03)}
+.stats{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:16px}
+.stat{padding:5px 12px;border-radius:50px;border:1px solid var(--gb);font-size:12px;color:var(--muted);background:rgba(255,255,255,.03)}
+
+/* Tabs */
+.tabs{display:flex;gap:6px;margin-bottom:20px;background:var(--glass);border:1px solid var(--gb);border-radius:16px;padding:6px;flex-wrap:wrap}
+.tab{flex:1;min-width:120px;padding:11px 16px;border-radius:11px;border:none;background:transparent;color:var(--muted);cursor:pointer;font-size:13px;font-weight:600;transition:all .22s;font-family:inherit;display:flex;align-items:center;justify-content:center;gap:7px}
+.tab:hover{color:var(--text);background:rgba(255,255,255,.05)}
+.tab.active{background:linear-gradient(135deg,var(--p1),var(--p2));color:#fff;box-shadow:0 4px 18px rgba(139,92,246,.35)}
+.tab-panel{display:none}.tab-panel.active{display:block}
+
 .card{background:var(--glass);border:1px solid var(--gb);border-radius:20px;padding:26px;backdrop-filter:blur(20px);margin-bottom:20px}
 .sec-lbl{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:1.5px;color:var(--muted);margin-bottom:12px}
-.platforms{display:flex;flex-wrap:wrap;gap:9px;margin-bottom:24px}
-.pb{display:flex;align-items:center;gap:7px;padding:9px 15px;border-radius:50px;border:1px solid var(--gb);background:transparent;color:var(--muted);cursor:pointer;font-size:13px;font-weight:500;transition:all .2s;font-family:inherit}
-.pb:hover{border-color:rgba(139,92,246,.4);color:var(--text);background:rgba(139,92,246,.08)}
-.pb.active{border-color:var(--p1);color:var(--text);background:rgba(139,92,246,.14);box-shadow:0 0 18px rgba(139,92,246,.2)}
-.sel-row{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:22px}
-@media(max-width:560px){.sel-row{grid-template-columns:1fr}}
+.platforms{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px}
+.pb{display:flex;align-items:center;gap:6px;padding:8px 14px;border-radius:50px;border:1px solid var(--gb);background:transparent;color:var(--muted);cursor:pointer;font-size:13px;font-weight:500;transition:all .2s;font-family:inherit}
+.pb:hover{border-color:rgba(139,92,246,.4);color:var(--text)}
+.pb.active{border-color:var(--p1);color:var(--text);background:rgba(139,92,246,.14);box-shadow:0 0 16px rgba(139,92,246,.2)}
+.sel-row{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:20px}
+.sel-row2{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-bottom:20px}
+@media(max-width:560px){.sel-row,.sel-row2{grid-template-columns:1fr}}
 .sg label{display:block;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:1px;color:var(--muted);margin-bottom:7px}
-.sg select{width:100%;padding:10px 32px 10px 13px;background:rgba(255,255,255,.05);border:1px solid var(--gb);border-radius:10px;color:var(--text);font-size:13px;cursor:pointer;outline:none;appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%2394a3b8' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 11px center;font-family:inherit;transition:border-color .2s}
-.sg select:focus{border-color:var(--p1)}
+.sg select,.sg input{width:100%;padding:10px 13px;background:rgba(255,255,255,.05);border:1px solid var(--gb);border-radius:10px;color:var(--text);font-size:13px;cursor:pointer;outline:none;font-family:inherit;transition:border-color .2s}
+.sg select{padding-right:32px;appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%2394a3b8' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 11px center}
+.sg select:focus,.sg input:focus,.sg textarea:focus{border-color:var(--p1)}
 .sg select option{background:#111128}
-.ta-g{margin-bottom:22px}
+.sg textarea{width:100%;padding:13px;background:rgba(255,255,255,.05);border:1px solid var(--gb);border-radius:10px;color:var(--text);font-size:14px;line-height:1.65;resize:none;outline:none;font-family:inherit;transition:border-color .2s}
+.ta-g{margin-bottom:20px}
 .ta-g label{display:block;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:1px;color:var(--muted);margin-bottom:7px}
 .ta-g textarea{width:100%;padding:13px;background:rgba(255,255,255,.05);border:1px solid var(--gb);border-radius:12px;color:var(--text);font-size:14px;line-height:1.65;resize:none;outline:none;font-family:inherit;transition:border-color .2s;min-height:100px}
-.ta-g textarea:focus{border-color:var(--p1)}
 .ta-g textarea::placeholder{color:var(--muted)}
-.cc{text-align:right;font-size:12px;color:var(--muted);margin-top:5px}
+.char-count{display:flex;justify-content:space-between;font-size:12px;color:var(--muted);margin-top:5px}
 .btn-row{display:flex;gap:11px;flex-wrap:wrap}
 .btn-gen{flex:1;min-width:150px;padding:14px 22px;background:linear-gradient(135deg,var(--p1),var(--p2));border:none;border-radius:12px;color:#fff;font-size:15px;font-weight:600;cursor:pointer;transition:all .2s;display:flex;align-items:center;justify-content:center;gap:8px;box-shadow:0 4px 22px rgba(139,92,246,.3);font-family:inherit}
 .btn-gen:hover:not(:disabled){transform:translateY(-2px);box-shadow:0 8px 32px rgba(139,92,246,.4)}
 .btn-gen:disabled{opacity:.55;cursor:not-allowed}
-.btn-sur{padding:14px 18px;background:rgba(255,255,255,.05);border:1px solid var(--gb);border-radius:12px;color:var(--muted);font-size:13px;font-weight:500;cursor:pointer;transition:all .2s;white-space:nowrap;font-family:inherit}
-.btn-sur:hover{border-color:rgba(139,92,246,.4);color:var(--text);background:rgba(139,92,246,.08)}
+.btn-sec{padding:14px 18px;background:rgba(255,255,255,.05);border:1px solid var(--gb);border-radius:12px;color:var(--muted);font-size:13px;font-weight:500;cursor:pointer;transition:all .2s;white-space:nowrap;font-family:inherit}
+.btn-sec:hover{border-color:rgba(139,92,246,.4);color:var(--text);background:rgba(139,92,246,.08)}
 .ld{display:flex;align-items:center;justify-content:center;gap:14px;padding:38px;color:var(--muted);font-size:14px}
-.sp{width:20px;height:20px;border:2px solid rgba(139,92,246,.25);border-top-color:var(--p1);border-radius:50%;animation:spin .75s linear infinite}
+.sp{width:20px;height:20px;border:2px solid rgba(139,92,246,.25);border-top-color:var(--p1);border-radius:50%;animation:spin .75s linear infinite;flex-shrink:0}
 @keyframes spin{to{transform:rotate(360deg)}}
 .ld-bar{height:2px;background:linear-gradient(90deg,var(--p1),var(--p2));border-radius:2px;width:0%;transition:width .4s ease;margin-top:10px}
-.res-hdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px;flex-wrap:wrap;gap:10px}
+.err{background:rgba(239,68,68,.09);border:1px solid rgba(239,68,68,.2);border-radius:12px;padding:15px;color:#f87171;font-size:14px;margin-bottom:16px}
+/* Results */
+.res-hdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;flex-wrap:wrap;gap:10px}
 .res-title{font-size:17px;font-weight:700}
 .vgrid{display:grid;gap:14px}
-.vc{background:rgba(255,255,255,.025);border:1px solid var(--gb);border-radius:16px;padding:20px;transition:all .3s;animation:fiu .5s ease forwards;opacity:0}
-.vc:hover{border-color:rgba(139,92,246,.28);background:rgba(139,92,246,.04)}
-@keyframes fiu{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
-.vc:nth-child(1){animation-delay:.1s}.vc:nth-child(2){animation-delay:.25s}.vc:nth-child(3){animation-delay:.4s}
-.vc-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:13px}
+.vc{background:rgba(255,255,255,.025);border:1px solid var(--gb);border-radius:16px;padding:20px;animation:fiu .5s ease forwards;opacity:0}
+.vc:hover{border-color:rgba(139,92,246,.25)}
+@keyframes fiu{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+.vc:nth-child(1){animation-delay:.08s}.vc:nth-child(2){animation-delay:.2s}.vc:nth-child(3){animation-delay:.35s}
+.vc-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
 .vc-num{font-size:11px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:1px}
 .badge{display:inline-flex;align-items:center;gap:5px;padding:4px 10px;border-radius:50px;font-size:12px;font-weight:600}
 .bh{background:rgba(16,185,129,.13);color:#10b981;border:1px solid rgba(16,185,129,.28)}
 .bm{background:rgba(245,158,11,.13);color:#f59e0b;border:1px solid rgba(245,158,11,.28)}
 .bl{background:rgba(148,163,184,.1);color:#94a3b8;border:1px solid rgba(148,163,184,.18)}
-.vc-content{font-size:14px;line-height:1.75;color:var(--text);white-space:pre-wrap;word-break:break-word;margin-bottom:13px}
-.vc-tags{font-size:13px;color:var(--p3);margin-bottom:11px;line-height:1.6}
-.vc-reason{font-size:12px;color:var(--muted);font-style:italic;margin-bottom:13px;padding:8px 12px;background:rgba(255,255,255,.03);border-radius:8px;border-left:2px solid var(--p1)}
+.vc-content{font-size:14px;line-height:1.75;color:var(--text);white-space:pre-wrap;word-break:break-word;margin-bottom:12px}
+.vc-tags{font-size:13px;color:var(--p3);margin-bottom:10px;line-height:1.6}
+.vc-reason{font-size:12px;color:var(--muted);font-style:italic;margin-bottom:12px;padding:8px 12px;background:rgba(255,255,255,.03);border-radius:8px;border-left:2px solid var(--p1)}
 .vc-actions{display:flex;gap:8px;flex-wrap:wrap}
-.btn-cp{padding:8px 14px;background:rgba(255,255,255,.05);border:1px solid var(--gb);border-radius:8px;color:var(--muted);font-size:12px;cursor:pointer;transition:all .2s;font-family:inherit}
+.btn-cp{padding:7px 13px;background:rgba(255,255,255,.05);border:1px solid var(--gb);border-radius:8px;color:var(--muted);font-size:12px;cursor:pointer;transition:all .2s;font-family:inherit}
 .btn-cp:hover{background:rgba(139,92,246,.1);border-color:rgba(139,92,246,.35);color:var(--text)}
 .btn-cp.ok{background:rgba(16,185,129,.1);border-color:rgba(16,185,129,.35);color:#10b981}
-.err{background:rgba(239,68,68,.09);border:1px solid rgba(239,68,68,.2);border-radius:12px;padding:15px;color:#f87171;font-size:14px;margin-bottom:18px}
-.char-count{display:flex;justify-content:space-between;font-size:12px;color:var(--muted);margin-top:5px}
-.hidden{display:none!important}
+
+/* Bio analyzer */
+.bio-score{text-align:center;padding:24px;background:rgba(139,92,246,.08);border:1px solid rgba(139,92,246,.2);border-radius:16px;margin-bottom:20px}
+.score-num{font-size:56px;font-weight:800;background:linear-gradient(135deg,var(--p1),var(--p2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1}
+.score-lbl{font-size:14px;color:var(--muted);margin-top:6px}
+.score-bars{display:grid;gap:10px;margin-top:18px;text-align:left}
+.sbar-row{display:flex;align-items:center;gap:10px;font-size:13px}
+.sbar-lbl{width:110px;color:var(--muted);flex-shrink:0}
+.sbar-track{flex:1;height:6px;background:rgba(255,255,255,.08);border-radius:3px;overflow:hidden}
+.sbar-fill{height:100%;background:linear-gradient(90deg,var(--p1),var(--p2));border-radius:3px;transition:width 1s ease}
+.sbar-val{width:30px;text-align:right;font-weight:600;color:var(--text)}
+
+/* Calendar */
+.cal-grid{display:grid;gap:12px}
+.week-block{background:rgba(255,255,255,.025);border:1px solid var(--gb);border-radius:14px;overflow:hidden}
+.week-hdr{padding:12px 16px;background:rgba(139,92,246,.1);border-bottom:1px solid var(--gb);font-size:13px;font-weight:700;color:var(--p1)}
+.day-list{display:grid;gap:0}
+.day-item{padding:12px 16px;border-bottom:1px solid rgba(255,255,255,.04);display:flex;gap:12px;align-items:flex-start;font-size:13px}
+.day-item:last-child{border-bottom:none}
+.day-name{font-weight:700;color:var(--muted);width:32px;flex-shrink:0;font-size:12px;text-transform:uppercase}
+.day-type{padding:2px 8px;border-radius:50px;font-size:10px;font-weight:700;flex-shrink:0;margin-top:2px}
+.dt-c{background:rgba(139,92,246,.15);color:var(--p1)}
+.dt-h{background:rgba(236,72,153,.15);color:var(--p2)}
+.dt-e{background:rgba(6,182,212,.15);color:var(--p3)}
+.dt-r{background:rgba(16,185,129,.15);color:#10b981}
+.day-idea{color:var(--text);line-height:1.5;flex:1}
+
+/* Trends */
+.trend-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+@media(max-width:560px){.trend-grid{grid-template-columns:1fr}}
+.trend-card{background:rgba(255,255,255,.025);border:1px solid var(--gb);border-radius:14px;padding:16px;cursor:pointer;transition:all .2s}
+.trend-card:hover{border-color:rgba(139,92,246,.35);background:rgba(139,92,246,.05)}
+.trend-emoji{font-size:28px;margin-bottom:8px}
+.trend-topic{font-size:15px;font-weight:700;margin-bottom:5px}
+.trend-desc{font-size:12px;color:var(--muted);line-height:1.5;margin-bottom:10px}
+.trend-tags{font-size:11px;color:var(--p3)}
+.trend-use{padding:6px 12px;background:linear-gradient(135deg,var(--p1),var(--p2));border:none;border-radius:8px;color:#fff;font-size:12px;font-weight:600;cursor:pointer;font-family:inherit;transition:all .2s}
+.trend-use:hover{opacity:.85}
+
 /* History */
-.hist-wrap{margin-top:8px}
-.hist-title{font-size:13px;color:var(--muted);margin-bottom:10px;display:flex;align-items:center;gap:6px}
+.hist-title{font-size:13px;color:var(--muted);margin-bottom:10px}
 .hist-list{display:flex;flex-direction:column;gap:8px}
 .hist-item{background:rgba(255,255,255,.03);border:1px solid var(--gb);border-radius:10px;padding:12px;cursor:pointer;transition:all .2s;font-size:13px;color:var(--muted)}
 .hist-item:hover{border-color:rgba(139,92,246,.3);color:var(--text)}
 .hist-item strong{color:var(--text);display:block;margin-bottom:3px;font-size:12px}
+.hidden{display:none!important}
 footer{text-align:center;padding:28px 0 20px;color:var(--muted);font-size:13px}
 footer span{background:linear-gradient(135deg,var(--p1),var(--p2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-weight:600}
 </style>
 </head>
 <body>
-<div class="o1 orb"></div>
-<div class="o2 orb"></div>
-<div class="o3 orb"></div>
+<div class="o1 orb"></div><div class="o2 orb"></div><div class="o3 orb"></div>
 <div class="wrap">
 
-  <!-- AdSense -->
-  <div class="ad">
-    <div class="ad-lbl">Publicidad</div>
-    <div class="ad-ph">📢 Google AdSense — 728×90</div>
+<div class="ad">
+  <div class="ad-lbl">Publicidad</div>
+  <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6659614052628844" data-ad-slot="4965110158" data-ad-format="auto" data-full-width-responsive="true"></ins>
+  <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+</div>
+
+<header>
+  <div class="logo"><div class="logo-icon">✦</div><span class="logo-name">ContentAI Studio</span></div>
+  <h1>Genera contenido <span>viral con IA</span><br>para tus redes sociales</h1>
+  <p>La herramienta que los creadores no pueden dejar de usar</p>
+  <div class="stats">
+    <span class="stat">⚡ Instantáneo</span>
+    <span class="stat">✨ 3 variaciones</span>
+    <span class="stat">🌍 3 idiomas</span>
+    <span class="stat">🎯 6 plataformas</span>
+    <span class="stat">🆕 Analizador de bio</span>
+    <span class="stat">📅 Calendario 30 días</span>
   </div>
+</header>
 
-  <header>
-    <div class="logo">
-      <div class="logo-icon">✦</div>
-      <span class="logo-name">ContentAI Studio</span>
-    </div>
-    <h1>Genera contenido <span>viral con IA</span><br>para tus redes sociales</h1>
-    <p>Posts, captions, bios y ganchos virales — listos en segundos</p>
-    <div class="stats">
-      <span class="stat">⚡ Instantáneo</span>
-      <span class="stat">✨ 3 variaciones</span>
-      <span class="stat">🌍 3 idiomas</span>
-      <span class="stat">🎯 6 plataformas</span>
-    </div>
-  </header>
+<!-- Tabs -->
+<div class="tabs">
+  <button class="tab active" onclick="switchTab('gen',this)">✦ Generador</button>
+  <button class="tab" onclick="switchTab('trends',this)">📈 Tendencias</button>
+  <button class="tab" onclick="switchTab('bio',this)">🔍 Analizar Bio</button>
+  <button class="tab" onclick="switchTab('cal',this)">📅 Calendario</button>
+</div>
 
+<!-- TAB: Generador -->
+<div id="tab-gen" class="tab-panel active">
   <div class="card">
     <div class="sec-lbl">Plataforma</div>
     <div class="platforms">
-      <button class="pb active" data-p="Instagram" onclick="selP(this)">📸 Instagram</button>
-      <button class="pb" data-p="TikTok" onclick="selP(this)">🎵 TikTok</button>
-      <button class="pb" data-p="LinkedIn" onclick="selP(this)">💼 LinkedIn</button>
-      <button class="pb" data-p="Twitter/X" onclick="selP(this)">✕ Twitter/X</button>
-      <button class="pb" data-p="YouTube" onclick="selP(this)">▶ YouTube</button>
-      <button class="pb" data-p="Facebook" onclick="selP(this)">📘 Facebook</button>
+      <button class="pb active" data-p="Instagram" onclick="selP(this,'gen')">📸 Instagram</button>
+      <button class="pb" data-p="TikTok" onclick="selP(this,'gen')">🎵 TikTok</button>
+      <button class="pb" data-p="LinkedIn" onclick="selP(this,'gen')">💼 LinkedIn</button>
+      <button class="pb" data-p="Twitter/X" onclick="selP(this,'gen')">✕ Twitter/X</button>
+      <button class="pb" data-p="YouTube" onclick="selP(this,'gen')">▶ YouTube</button>
+      <button class="pb" data-p="Facebook" onclick="selP(this,'gen')">📘 Facebook</button>
     </div>
-
     <div class="sel-row">
-      <div class="sg">
-        <label>Tipo de contenido</label>
+      <div class="sg"><label>Tipo de contenido</label>
         <select id="ctype">
           <option value="caption">Caption / Post</option>
           <option value="bio">Bio de perfil</option>
@@ -139,8 +193,7 @@ footer span{background:linear-gradient(135deg,var(--p1),var(--p2));-webkit-backg
           <option value="pack">Pack completo</option>
         </select>
       </div>
-      <div class="sg">
-        <label>Tono</label>
+      <div class="sg"><label>Tono</label>
         <select id="tone">
           <option value="inspiracional">✨ Inspiracional</option>
           <option value="divertido">😄 Divertido</option>
@@ -150,8 +203,7 @@ footer span{background:linear-gradient(135deg,var(--p1),var(--p2));-webkit-backg
           <option value="educativo">📚 Educativo</option>
         </select>
       </div>
-      <div class="sg">
-        <label>Idioma de salida</label>
+      <div class="sg"><label>Idioma de salida</label>
         <select id="lang">
           <option value="español">🇪🇸 Español</option>
           <option value="inglés">🇺🇸 English</option>
@@ -159,285 +211,514 @@ footer span{background:linear-gradient(135deg,var(--p1),var(--p2));-webkit-backg
         </select>
       </div>
     </div>
-
     <div class="ta-g">
       <label>¿Sobre qué es tu contenido?</label>
       <textarea id="topic" rows="4" placeholder="Ej: Soy coach de fitness y quiero atraer clientes para mis clases de yoga online para mamás ocupadas..." oninput="updateCC()"></textarea>
       <div class="char-count"><span id="cc">0 caracteres</span><span id="ccmax"></span></div>
     </div>
-
     <div class="btn-row">
       <button class="btn-gen" id="genBtn" onclick="generate()">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
         Generar contenido
       </button>
-      <button class="btn-sur" onclick="surprise()">🎲 Sorpréndeme</button>
+      <button class="btn-sec" onclick="surprise()">🎲 Sorpréndeme</button>
     </div>
   </div>
-
-  <div id="errMsg" class="err hidden"></div>
-
-  <div id="ldState" class="card hidden">
-    <div class="ld">
-      <div class="sp"></div>
-      <div>
-        <div id="ldTxt">Analizando tu nicho con IA...</div>
-        <div class="ld-bar" id="ldBar"></div>
-      </div>
-    </div>
-  </div>
-
-  <div id="results" class="card hidden">
-    <div class="res-hdr">
-      <div class="res-title">✨ 3 variaciones generadas</div>
-      <button class="btn-sur" style="font-size:12px;padding:8px 13px" onclick="generate()">🔄 Regenerar</button>
-    </div>
+  <div id="errGen" class="err hidden"></div>
+  <div id="ldGen" class="card hidden"><div class="ld"><div class="sp"></div><div><div id="ldGenTxt">Analizando tu nicho...</div><div class="ld-bar" id="ldGenBar"></div></div></div></div>
+  <div id="resGen" class="card hidden">
+    <div class="res-hdr"><div class="res-title">✨ 3 variaciones generadas</div><button class="btn-sec" style="font-size:12px;padding:8px 13px" onclick="generate()">🔄 Regenerar</button></div>
     <div id="vgrid" class="vgrid"></div>
   </div>
-
-  <!-- Historial -->
   <div id="histCard" class="card hidden">
     <div class="hist-title">🕐 Generaciones recientes</div>
     <div id="histList" class="hist-list"></div>
   </div>
+</div>
 
-  <div class="ad" style="margin-top:4px">
-    <div class="ad-lbl">Publicidad</div>
-    <div class="ad-ph">📢 Google AdSense — 728×90</div>
+<!-- TAB: Tendencias -->
+<div id="tab-trends" class="tab-panel">
+  <div class="card">
+    <div class="sec-lbl">Plataforma para tendencias</div>
+    <div class="platforms" id="trendPlats">
+      <button class="pb active" data-p="Instagram" onclick="selP(this,'trend')">📸 Instagram</button>
+      <button class="pb" data-p="TikTok" onclick="selP(this,'trend')">🎵 TikTok</button>
+      <button class="pb" data-p="LinkedIn" onclick="selP(this,'trend')">💼 LinkedIn</button>
+      <button class="pb" data-p="Twitter/X" onclick="selP(this,'trend')">✕ Twitter/X</button>
+      <button class="pb" data-p="YouTube" onclick="selP(this,'trend')">▶ YouTube</button>
+    </div>
+    <div class="sel-row2">
+      <div class="sg"><label>Nicho / Industria</label>
+        <select id="trendNiche">
+          <option value="emprendimiento y negocios">💼 Emprendimiento</option>
+          <option value="fitness y salud">💪 Fitness & Salud</option>
+          <option value="tecnología e IA">🤖 Tecnología & IA</option>
+          <option value="moda y estilo">👗 Moda & Estilo</option>
+          <option value="gastronomía y cocina">🍕 Gastronomía</option>
+          <option value="viajes y lifestyle">✈️ Viajes & Lifestyle</option>
+          <option value="finanzas personales">💰 Finanzas</option>
+          <option value="educación y desarrollo personal">📚 Educación</option>
+          <option value="entretenimiento y humor">😂 Entretenimiento</option>
+          <option value="belleza y cuidado personal">💄 Belleza</option>
+        </select>
+      </div>
+      <div class="sg"><label>Idioma</label>
+        <select id="trendLang">
+          <option value="español">🇪🇸 Español</option>
+          <option value="inglés">🇺🇸 English</option>
+          <option value="portugués">🇧🇷 Português</option>
+        </select>
+      </div>
+    </div>
+    <button class="btn-gen" onclick="getTrends()">📈 Ver tendencias virales</button>
   </div>
+  <div id="errTrend" class="err hidden"></div>
+  <div id="ldTrend" class="card hidden"><div class="ld"><div class="sp"></div><div><div id="ldTrendTxt">Analizando tendencias...</div><div class="ld-bar" id="ldTrendBar"></div></div></div></div>
+  <div id="resTrend" class="hidden">
+    <div style="margin-bottom:12px;font-size:13px;color:var(--muted)">💡 Haz clic en "Usar tema" para generar contenido con esa tendencia</div>
+    <div id="trendGrid" class="trend-grid"></div>
+  </div>
+</div>
 
-  <footer>Hecho con ❤️ y <span>Inteligencia Artificial</span> · Compártelo con otros creadores 🚀</footer>
+<!-- TAB: Bio Analyzer -->
+<div id="tab-bio" class="tab-panel">
+  <div class="card">
+    <div class="sec-lbl">Analizador de Bio con IA</div>
+    <p style="color:var(--muted);font-size:14px;margin-bottom:20px">Pega tu bio actual y la IA la puntuará, identificará problemas y generará 3 versiones mejoradas.</p>
+    <div class="sel-row2">
+      <div class="sg"><label>Plataforma</label>
+        <select id="bioPlatform">
+          <option value="Instagram">📸 Instagram</option>
+          <option value="TikTok">🎵 TikTok</option>
+          <option value="LinkedIn">💼 LinkedIn</option>
+          <option value="Twitter/X">✕ Twitter/X</option>
+        </select>
+      </div>
+      <div class="sg"><label>Idioma</label>
+        <select id="bioLang">
+          <option value="español">🇪🇸 Español</option>
+          <option value="inglés">🇺🇸 English</option>
+          <option value="portugués">🇧🇷 Português</option>
+        </select>
+      </div>
+    </div>
+    <div class="sg" style="margin-bottom:20px">
+      <label>Tu bio actual</label>
+      <textarea id="bioInput" rows="4" placeholder="Pega aquí tu bio actual...&#10;Ej: Coach de vida | Ayudo a personas a alcanzar sus metas | DM para info" style="margin-top:7px"></textarea>
+    </div>
+    <button class="btn-gen" onclick="analyzeBio()">🔍 Analizar y mejorar mi bio</button>
+  </div>
+  <div id="errBio" class="err hidden"></div>
+  <div id="ldBio" class="card hidden"><div class="ld"><div class="sp"></div><div><div id="ldBioTxt">Analizando tu bio...</div><div class="ld-bar" id="ldBioBar"></div></div></div></div>
+  <div id="resBio" class="hidden">
+    <div id="bioScoreCard" class="card"></div>
+    <div id="bioVariants" class="card hidden">
+      <div class="res-hdr"><div class="res-title">✨ 3 bios mejoradas</div></div>
+      <div id="bioGrid" class="vgrid"></div>
+    </div>
+  </div>
+</div>
+
+<!-- TAB: Calendario -->
+<div id="tab-cal" class="tab-panel">
+  <div class="card">
+    <div class="sec-lbl">Calendario de contenido — 30 días</div>
+    <p style="color:var(--muted);font-size:14px;margin-bottom:20px">La IA genera un plan completo de 30 días con ideas de contenido organizado por semanas.</p>
+    <div class="sel-row">
+      <div class="sg"><label>Plataforma principal</label>
+        <select id="calPlatform">
+          <option value="Instagram">📸 Instagram</option>
+          <option value="TikTok">🎵 TikTok</option>
+          <option value="LinkedIn">💼 LinkedIn</option>
+          <option value="YouTube">▶ YouTube</option>
+        </select>
+      </div>
+      <div class="sg"><label>Frecuencia</label>
+        <select id="calFreq">
+          <option value="diario">📅 Diario (7 días/semana)</option>
+          <option value="5 veces por semana (lun-vie)">📋 5 días/semana</option>
+          <option value="3 veces por semana">📌 3 días/semana</option>
+        </select>
+      </div>
+      <div class="sg"><label>Idioma</label>
+        <select id="calLang">
+          <option value="español">🇪🇸 Español</option>
+          <option value="inglés">🇺🇸 English</option>
+          <option value="portugués">🇧🇷 Português</option>
+        </select>
+      </div>
+    </div>
+    <div class="sg" style="margin-bottom:20px">
+      <label>Tu nicho o negocio</label>
+      <textarea id="calTopic" rows="3" placeholder="Ej: Soy nutricionista especializada en dietas para deportistas amateur..." style="margin-top:7px"></textarea>
+    </div>
+    <button class="btn-gen" onclick="getCalendar()">📅 Generar calendario de 30 días</button>
+  </div>
+  <div id="errCal" class="err hidden"></div>
+  <div id="ldCal" class="card hidden"><div class="ld"><div class="sp"></div><div><div id="ldCalTxt">Planificando tu mes...</div><div class="ld-bar" id="ldCalBar"></div></div></div></div>
+  <div id="resCal" class="hidden">
+    <div class="card">
+      <div class="res-hdr">
+        <div class="res-title">📅 Tu calendario de 30 días</div>
+        <button class="btn-sec" style="font-size:12px;padding:8px 13px" onclick="copyCalendar()">📋 Copiar todo</button>
+      </div>
+      <div id="calGrid" class="cal-grid"></div>
+    </div>
+  </div>
+</div>
+
+<div class="ad" style="margin-top:4px">
+  <div class="ad-lbl">Publicidad</div>
+  <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6659614052628844" data-ad-slot="4965110158" data-ad-format="auto" data-full-width-responsive="true"></ins>
+  <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+</div>
+<footer>Hecho con ❤️ y <span>Inteligencia Artificial</span> · Compártelo con otros creadores 🚀</footer>
 </div>
 
 <script>
-let platform='Instagram', variants=[], history=[];
-
+const isVercel=window.location.hostname.includes('vercel.app')||window.location.hostname.includes('.app');
+let genPlatform='Instagram', trendPlatform='Instagram';
+let variants=[], calData=[], histData=[];
 const limits={Instagram:2200,TikTok:2200,'Twitter/X':280,LinkedIn:3000,YouTube:5000,Facebook:63206};
 const ldMsgs=['Analizando tu nicho con IA...','Creando ganchos que detienen el scroll...','Optimizando para el algoritmo...','Añadiendo el toque viral...','Casi listo...'];
 const surprises=[
-  {t:'Soy fotógrafa de bodas y quiero mostrar mi trabajo y atraer parejas',p:'Instagram',ct:'pack',tone:'inspiracional',lang:'español'},
-  {t:'Business coach helping entrepreneurs scale their personal brand from zero',p:'LinkedIn',ct:'hook',tone:'profesional',lang:'inglés'},
-  {t:'Compartilho dicas de finanças pessoais e como economizar dinheiro',p:'TikTok',ct:'caption',tone:'divertido',lang:'portugués'},
-  {t:'Recetas saludables y ultra rápidas para personas que no tienen tiempo',p:'Instagram',ct:'pack',tone:'casual',lang:'español'},
-  {t:'Digital nomad traveling the world and sharing my lifestyle',p:'Twitter/X',ct:'thread',tone:'casual',lang:'inglés'},
+  {t:'Soy fotógrafa de bodas y quiero mostrar mi trabajo',p:'Instagram',ct:'pack',tone:'inspiracional',lang:'español'},
+  {t:'Business coach helping entrepreneurs scale their brand',p:'LinkedIn',ct:'hook',tone:'profesional',lang:'inglés'},
+  {t:'Compartilho dicas de finanças pessoais',p:'TikTok',ct:'caption',tone:'divertido',lang:'portugués'},
+  {t:'Recetas saludables y ultra rápidas para gente ocupada',p:'Instagram',ct:'pack',tone:'casual',lang:'español'},
   {t:'Diseñadora gráfica especializada en branding para startups',p:'Instagram',ct:'bio',tone:'profesional',lang:'español'},
+  {t:'Psicóloga que ayuda a superar la ansiedad y vivir mejor',p:'TikTok',ct:'hook',tone:'educativo',lang:'español'},
 ];
 
-function selP(btn){
-  document.querySelectorAll('.pb').forEach(b=>b.classList.remove('active'));
+function switchTab(id,btn){
+  document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(b=>b.classList.remove('active'));
+  document.getElementById('tab-'+id).classList.add('active');
   btn.classList.add('active');
-  platform=btn.dataset.p;
-  updateCC();
+}
+
+function selP(btn,ctx){
+  const parent=btn.closest('.platforms');
+  parent.querySelectorAll('.pb').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  if(ctx==='gen'){genPlatform=btn.dataset.p;updateCC();}
+  else trendPlatform=btn.dataset.p;
 }
 
 function updateCC(){
   const v=document.getElementById('topic').value;
-  const lim=limits[platform]||2200;
+  const lim=limits[genPlatform]||2200;
   document.getElementById('cc').textContent=v.length+' caracteres';
-  document.getElementById('ccmax').textContent='Máx: '+lim+' en '+platform;
+  document.getElementById('ccmax').textContent='Máx: '+lim+' en '+genPlatform;
 }
 
+// Core AI call — detecta entorno automáticamente
+async function callAI(prompt, maxTokens=1800){
+  if(isVercel){
+    const res=await fetch('/api/generate',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({prompt})});
+    const data=await res.json();
+    if(data.error) throw new Error(data.error);
+    return data.text||'';
+  } else {
+    const res=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:maxTokens,messages:[{role:'user',content:prompt}]})});
+    const data=await res.json();
+    return (data.content||[]).map(b=>b.text||'').join('');
+  }
+}
+
+function parseJSON(raw){
+  const clean=raw.replace(/```json|```/g,'').trim();
+  try{return JSON.parse(clean);}catch(e){
+    const m=clean.match(/\{[\s\S]*\}/);
+    if(m) return JSON.parse(m[0]);
+    throw new Error('Respuesta inválida');
+  }
+}
+
+function startLD(txtId,barId,msgs){
+  let i=0;
+  document.getElementById(barId).style.width='0%';
+  return setInterval(()=>{
+    document.getElementById(txtId).textContent=msgs[i%msgs.length];i++;
+    document.getElementById(barId).style.width=Math.min(90,i*18)+'%';
+  },1600);
+}
+
+// ===================== GENERADOR =====================
 function surprise(){
   const s=surprises[Math.floor(Math.random()*surprises.length)];
   document.getElementById('topic').value=s.t;
-  document.querySelectorAll('.pb').forEach(b=>{b.classList.remove('active');if(b.dataset.p===s.p)b.classList.add('active');});
-  platform=s.p;
+  document.querySelectorAll('#tab-gen .platforms .pb').forEach(b=>{b.classList.remove('active');if(b.dataset.p===s.p)b.classList.add('active');});
+  genPlatform=s.p;
   document.getElementById('ctype').value=s.ct;
   document.getElementById('tone').value=s.tone;
   document.getElementById('lang').value=s.lang;
-  updateCC();
-  generate();
-}
-
-function setLoading(on){
-  document.getElementById('genBtn').disabled=on;
-  document.getElementById('ldState').classList.toggle('hidden',!on);
-  document.getElementById('errMsg').classList.add('hidden');
-  if(on){
-    document.getElementById('results').classList.add('hidden');
-    let i=0;
-    const bar=document.getElementById('ldBar');
-    bar.style.width='0%';
-    window._ldI=setInterval(()=>{
-      document.getElementById('ldTxt').textContent=ldMsgs[i%ldMsgs.length];i++;
-      bar.style.width=Math.min(90,i*18)+'%';
-    },1600);
-  } else {
-    clearInterval(window._ldI);
-    document.getElementById('ldBar').style.width='100%';
-  }
+  updateCC();generate();
 }
 
 async function generate(){
   const topic=document.getElementById('topic').value.trim();
-  if(!topic){
-    const ta=document.getElementById('topic');
-    ta.style.borderColor='#ef4444';ta.focus();
-    setTimeout(()=>ta.style.borderColor='',2200);
-    return;
-  }
+  if(!topic){const ta=document.getElementById('topic');ta.style.borderColor='#ef4444';ta.focus();setTimeout(()=>ta.style.borderColor='',2200);return;}
   const ctype=document.getElementById('ctype').value;
   const tone=document.getElementById('tone').value;
   const lang=document.getElementById('lang').value;
 
   const instrucciones={
-    caption:`Escribe 3 captions/posts completos y diferentes para ${platform}. Cada uno debe tener estructura distinta: uno con pregunta al final, uno con lista de puntos, uno con historia personal. Incluye emojis. Longitud apropiada para ${platform}.`,
-    bio:`Escribe 3 bios de perfil cortas e impactantes para ${platform}. Máximo 150 caracteres cada una. Sin hashtags. Cada una con un enfoque diferente: una con humor, una profesional, una aspiracional.`,
-    hook:`Escribe 3 ganchos virales — solo la PRIMERA LÍNEA que hace que alguien pare de hacer scroll. Máximo 2 oraciones. Deben ser imposibles de ignorar. Sin hashtags.`,
-    thread:`Escribe 3 hilos/threads completos con 5 puntos numerados cada uno (1/ 2/ 3/ 4/ 5/). Cada hilo con un ángulo diferente del tema. Sin hashtags en el contenido.`,
-    hashtags:`Genera 3 estrategias de hashtags diferentes para ${platform}. Cada una con 15-20 hashtags organizados: primero los más populares (#grande), luego los medianos (#medio), luego los de nicho (#específico). El campo content debe describir la estrategia, el campo hashtags tiene los tags.`,
-    pack:`Crea 3 packs COMPLETOS. Cada pack debe incluir TODO esto claramente separado:
-🎯 GANCHO: [primera línea viral]
-📝 CAPTION: [post completo con emojis]  
-👤 BIO: [bio corta de perfil]
-#️⃣ HASHTAGS: [15 hashtags]
-Cada pack con enfoque completamente diferente.`
+    caption:`Escribe 3 captions/posts completos para ${genPlatform}. Cada uno con estructura diferente: uno con pregunta, uno con lista, uno con historia. Usa emojis estratégicamente.`,
+    bio:`Escribe 3 bios de perfil cortas e impactantes (máx 150 chars). Sin hashtags. Una con humor, una profesional, una aspiracional.`,
+    hook:`Escribe 3 ganchos virales — solo la PRIMERA LÍNEA que detiene el scroll. Máx 2 oraciones. Sin hashtags.`,
+    thread:`Escribe 3 hilos completos con 5 puntos numerados (1/ 2/ 3/ 4/ 5/) cada uno. Cada hilo con ángulo diferente.`,
+    hashtags:`Genera 3 estrategias de hashtags para ${genPlatform}. Cada una con 15 hashtags: populares + medianos + nicho. En content describe la estrategia.`,
+    pack:`Crea 3 packs COMPLETOS con este formato exacto:\n🎯 GANCHO: [primera línea viral]\n📝 CAPTION: [post con emojis]\n👤 BIO: [bio corta]\n#️⃣ HASHTAGS: [15 hashtags]`
   };
 
-  const prompt=`Eres un experto mundial en marketing de contenidos para redes sociales.
-
+  const prompt=`Eres experto en marketing viral para redes sociales.
 TAREA: ${instrucciones[ctype]}
+DATOS: Plataforma: ${genPlatform} | Negocio: ${topic} | TONO OBLIGATORIO: ${tone.toUpperCase()} | IDIOMA: ${lang}
+INSTRUCCIÓN CRÍTICA: Responde SOLO con este JSON (sin texto extra, sin backticks):
+{"variations":[{"content":"texto en ${lang}","hashtags":"#tags","engagement":"high","reason":"razón en ${lang}"},{"content":"...","hashtags":"...","engagement":"medium","reason":"..."},{"content":"...","hashtags":"...","engagement":"high","reason":"..."}]}
+- engagement: solo "high","medium","low" — Para bio/hook: hashtags=""`;
 
-DATOS:
-- Creador/negocio: ${topic}
-- Plataforma: ${platform}
-- TONO OBLIGATORIO: ${tone.toUpperCase()} — Esto es crítico. Todo el contenido DEBE reflejar este tono claramente. Si el tono es "divertido" usa humor y emojis graciosos. Si es "profesional" usa lenguaje formal. Si es "inspiracional" usa frases motivadoras. Si es "urgente" crea sensación de urgencia. Si es "educativo" aporta valor y datos.
-- IDIOMA OBLIGATORIO: ${lang} — usa SOLO este idioma en TODO el texto sin excepción
+  document.getElementById('genBtn').disabled=true;
+  document.getElementById('ldGen').classList.remove('hidden');
+  document.getElementById('resGen').classList.add('hidden');
+  document.getElementById('errGen').classList.add('hidden');
+  const iv=startLD('ldGenTxt','ldGenBar',ldMsgs);
 
-INSTRUCCIÓN CRÍTICA: Responde ÚNICAMENTE con el siguiente JSON. Sin explicaciones, sin texto antes o después, sin backticks, sin markdown. Solo el JSON puro:
-
-{"variations":[{"content":"TEXTO AQUÍ EN ${lang}","hashtags":"#tag1 #tag2 #tag3","engagement":"high","reason":"RAZÓN EN ${lang}"},{"content":"TEXTO AQUÍ EN ${lang}","hashtags":"#tag1 #tag2","engagement":"medium","reason":"RAZÓN EN ${lang}"},{"content":"TEXTO AQUÍ EN ${lang}","hashtags":"#tag1 #tag2","engagement":"high","reason":"RAZÓN EN ${lang}"}]}
-
-Reglas finales:
-- engagement solo puede ser: "high", "medium" o "low"  
-- Para bio y hook: hashtags=""
-- Para hashtags: pon todos los tags en el campo hashtags y descripción en content
-- Cada variación NOTABLEMENTE diferente
-- TODO en ${lang}`;
-
-  setLoading(true);
-
-  async function callAPI(p){
-    const res=await fetch('/api/generate',{
-      method:'POST',
-      headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({prompt:p})
-    });
-    const data=await res.json();
-    if(data.error) throw new Error(data.error);
-    const raw=data.text||'';
-    if(!raw) throw new Error('Respuesta vacía');
-    const clean=raw.replace(/```json|```/g,'').trim();
-    let parsed;
-    try{parsed=JSON.parse(clean);}catch(e1){
-      const match=clean.match(/\{[\s\S]*?"variations"[\s\S]*?\][\s\S]*?\}/);
-      if(match){try{parsed=JSON.parse(match[0]);}catch(e2){throw new Error('JSON inválido');}}
-      else throw new Error('JSON inválido');
-    }
-    if(!parsed?.variations?.length) throw new Error('Sin variaciones');
-    return parsed;
+  let parsed,lastErr;
+  for(let a=0;a<3;a++){
+    try{parsed=parseJSON(await callAI(prompt));break;}
+    catch(e){lastErr=e;await new Promise(r=>setTimeout(r,900));}
   }
+  clearInterval(iv);
+  document.getElementById('ldGen').classList.add('hidden');
+  document.getElementById('genBtn').disabled=false;
 
-  try{
-    let parsed, lastErr;
-    for(let attempt=0;attempt<3;attempt++){
-      try{parsed=await callAPI(prompt);break;}
-      catch(e){lastErr=e;await new Promise(r=>setTimeout(r,800));}
-    }
-    if(!parsed) throw new Error(lastErr?.message||'Error tras 3 intentos. Intenta de nuevo.');
-    setLoading(false);
-    addHistory(topic,platform,ctype,lang);
-    renderResults(parsed.variations);
-  }catch(e){
-    setLoading(false);
-    const el=document.getElementById('errMsg');
-    el.textContent='⚠️ '+e.message;
-    el.classList.remove('hidden');
+  if(!parsed?.variations?.length){
+    const el=document.getElementById('errGen');
+    el.textContent='⚠️ '+(lastErr?.message||'Error. Intenta de nuevo.');
+    el.classList.remove('hidden');return;
   }
-}
-
-function addHistory(topic,plat,type,lang){
-  history.unshift({topic,plat,type,lang,time:new Date().toLocaleTimeString()});
-  if(history.length>5) history.pop();
-  renderHistory();
-}
-
-function renderHistory(){
-  const card=document.getElementById('histCard');
-  const list=document.getElementById('histList');
-  if(!history.length){card.classList.add('hidden');return;}
-  card.classList.remove('hidden');
-  list.innerHTML=history.map((h,i)=>`
-    <div class="hist-item" onclick="reloadHist(${i})">
-      <strong>${h.plat} · ${h.type} · ${h.lang} · ${h.time}</strong>
-      ${h.topic.slice(0,80)}${h.topic.length>80?'...':''}
-    </div>`).join('');
-}
-
-function reloadHist(i){
-  const h=history[i];
-  document.getElementById('topic').value=h.topic;
-  document.querySelectorAll('.pb').forEach(b=>{b.classList.remove('active');if(b.dataset.p===h.plat)b.classList.add('active');});
-  platform=h.plat;
-  document.getElementById('ctype').value=h.type;
-  document.getElementById('lang').value=h.lang;
-  updateCC();
-  generate();
+  addHistory(topic,genPlatform,ctype,lang);
+  renderResults(parsed.variations);
 }
 
 function renderResults(vs){
   variants=vs;
-  const grid=document.getElementById('vgrid');
-  grid.innerHTML='';
+  const grid=document.getElementById('vgrid');grid.innerHTML='';
   const badges={high:['bh','🔥 Alto impacto'],medium:['bm','⚡ Buen potencial'],low:['bl','💬 Alternativa']};
   vs.forEach((v,i)=>{
     const[bc,bl]=badges[v.engagement]||badges.medium;
-    const card=document.createElement('div');
-    card.className='vc';
-    card.innerHTML=`
-      <div class="vc-top">
-        <span class="vc-num">Variación ${i+1}</span>
-        <span class="badge ${bc}">${bl}</span>
-      </div>
-      <div class="vc-content" id="vcc${i}"></div>
-      ${v.hashtags?`<div class="vc-tags">${v.hashtags}</div>`:''}
-      ${v.reason?`<div class="vc-reason">💡 ${v.reason}</div>`:''}
-      <div class="vc-actions">
-        <button class="btn-cp" onclick="cp(${i},'full',this)">📋 Copiar todo</button>
-        ${v.hashtags?`<button class="btn-cp" onclick="cp(${i},'tags',this)">🏷️ Hashtags</button>`:''}
-        <button class="btn-cp" onclick="cp(${i},'txt',this)">📝 Solo texto</button>
-      </div>`;
-    grid.appendChild(card);
-    typewrite(`vcc${i}`,v.content,i*80,11);
+    const c=document.createElement('div');c.className='vc';
+    c.innerHTML=`<div class="vc-top"><span class="vc-num">Variación ${i+1}</span><span class="badge ${bc}">${bl}</span></div>
+    <div class="vc-content" id="vcc${i}"></div>
+    ${v.hashtags?`<div class="vc-tags">${v.hashtags}</div>`:''}
+    ${v.reason?`<div class="vc-reason">💡 ${v.reason}</div>`:''}
+    <div class="vc-actions">
+      <button class="btn-cp" onclick="cp(${i},'full',this)">📋 Copiar todo</button>
+      ${v.hashtags?`<button class="btn-cp" onclick="cp(${i},'tags',this)">🏷️ Hashtags</button>`:''}
+      <button class="btn-cp" onclick="cp(${i},'txt',this)">📝 Solo texto</button>
+    </div>`;
+    grid.appendChild(c);
+    typewrite(`vcc${i}`,v.content,i*80,10);
   });
-  document.getElementById('results').classList.remove('hidden');
-  setTimeout(()=>document.getElementById('results').scrollIntoView({behavior:'smooth',block:'start'}),100);
+  document.getElementById('resGen').classList.remove('hidden');
+  setTimeout(()=>document.getElementById('resGen').scrollIntoView({behavior:'smooth',block:'start'}),100);
 }
 
 function typewrite(id,text,delay,speed){
-  setTimeout(()=>{
-    const el=document.getElementById(id);
-    if(!el) return;
-    let i=0;el.textContent='';
-    const iv=setInterval(()=>{
-      if(i<text.length){el.textContent+=text[i];i++;}
-      else clearInterval(iv);
-    },speed);
-  },delay);
+  setTimeout(()=>{const el=document.getElementById(id);if(!el)return;let i=0;el.textContent='';const iv=setInterval(()=>{if(i<text.length){el.textContent+=text[i];i++;}else clearInterval(iv);},speed);},delay);
 }
 
 function cp(idx,type,btn){
   const v=variants[idx];
-  let text='';
-  if(type==='full') text=v.content+(v.hashtags?'\n\n'+v.hashtags:'');
-  else if(type==='tags') text=v.hashtags;
-  else text=v.content;
-  navigator.clipboard.writeText(text).then(()=>{
-    const orig=btn.textContent;
-    btn.textContent='✓ ¡Copiado!';
-    btn.classList.add('ok');
-    setTimeout(()=>{btn.textContent=orig;btn.classList.remove('ok');},2200);
-  }).catch(()=>alert(text));
+  let t=type==='full'?v.content+(v.hashtags?'\n\n'+v.hashtags:''):type==='tags'?v.hashtags:v.content;
+  navigator.clipboard.writeText(t).then(()=>{const o=btn.textContent;btn.textContent='✓ ¡Copiado!';btn.classList.add('ok');setTimeout(()=>{btn.textContent=o;btn.classList.remove('ok');},2200);}).catch(()=>alert(t));
+}
+
+function addHistory(topic,p,ct,lang){
+  histData.unshift({topic,p,ct,lang,time:new Date().toLocaleTimeString()});
+  if(histData.length>5) histData.pop();
+  const card=document.getElementById('histCard');
+  const list=document.getElementById('histList');
+  card.classList.remove('hidden');
+  list.innerHTML=histData.map((h,i)=>`<div class="hist-item" onclick="reloadHist(${i})"><strong>${h.p} · ${h.ct} · ${h.lang} · ${h.time}</strong>${h.topic.slice(0,80)}${h.topic.length>80?'...':''}</div>`).join('');
+}
+
+function reloadHist(i){
+  const h=histData[i];
+  document.getElementById('topic').value=h.topic;
+  document.querySelectorAll('#tab-gen .platforms .pb').forEach(b=>{b.classList.remove('active');if(b.dataset.p===h.p)b.classList.add('active');});
+  genPlatform=h.p;
+  document.getElementById('ctype').value=h.ct;
+  document.getElementById('lang').value=h.lang;
+  updateCC();generate();
+}
+
+// ===================== TENDENCIAS =====================
+async function getTrends(){
+  const niche=document.getElementById('trendNiche').value;
+  const lang=document.getElementById('trendLang').value;
+  const prompt=`Eres experto en tendencias de redes sociales.
+Genera 6 temas de contenido VIRALES y MUY RELEVANTES para ${trendPlatform} en el nicho de ${niche}.
+Responde SOLO con JSON (sin backticks):
+{"trends":[{"emoji":"🔥","topic":"Título del tema","desc":"Descripción 1-2 oraciones en ${lang}","tags":"#tag1 #tag2 #tag3","why":"Por qué es viral ahora en ${lang}"},{"emoji":"...","topic":"...","desc":"...","tags":"...","why":"..."},...]}
+- 6 trends total, todos en ${lang}, temas diferentes y accionables`;
+
+  document.getElementById('errTrend').classList.add('hidden');
+  document.getElementById('ldTrend').classList.remove('hidden');
+  document.getElementById('resTrend').classList.add('hidden');
+  const iv=startLD('ldTrendTxt','ldTrendBar',['Analizando tendencias virales...','Buscando temas que explotan ahora...','Filtrando por engagement...','Preparando insights...']);
+  let parsed,lastErr;
+  for(let a=0;a<3;a++){
+    try{parsed=parseJSON(await callAI(prompt));break;}
+    catch(e){lastErr=e;await new Promise(r=>setTimeout(r,900));}
+  }
+  clearInterval(iv);
+  document.getElementById('ldTrend').classList.add('hidden');
+  if(!parsed?.trends?.length){const el=document.getElementById('errTrend');el.textContent='⚠️ '+(lastErr?.message||'Error. Intenta de nuevo.');el.classList.remove('hidden');return;}
+  const grid=document.getElementById('trendGrid');
+  grid.innerHTML=parsed.trends.map(t=>`
+    <div class="trend-card">
+      <div class="trend-emoji">${t.emoji}</div>
+      <div class="trend-topic">${t.topic}</div>
+      <div class="trend-desc">${t.desc}</div>
+      <div class="trend-tags" style="margin-bottom:8px">${t.tags}</div>
+      <div style="font-size:11px;color:var(--muted);margin-bottom:12px;font-style:italic">⚡ ${t.why}</div>
+      <button class="trend-use" onclick="useTrend('${t.topic.replace(/'/g,"\\'")}','${t.tags.replace(/'/g,"\\'")}')">✦ Usar este tema</button>
+    </div>`).join('');
+  document.getElementById('resTrend').classList.remove('hidden');
+}
+
+function useTrend(topic,tags){
+  switchTab('gen',document.querySelector('.tab'));
+  document.getElementById('topic').value=topic+'. Hashtags sugeridos: '+tags;
+  updateCC();
+  setTimeout(()=>document.getElementById('tab-gen').scrollIntoView({behavior:'smooth'}),100);
+}
+
+// ===================== BIO ANALYZER =====================
+async function analyzeBio(){
+  const bio=document.getElementById('bioInput').value.trim();
+  if(!bio){const ta=document.getElementById('bioInput');ta.style.borderColor='#ef4444';ta.focus();setTimeout(()=>ta.style.borderColor='',2200);return;}
+  const platform=document.getElementById('bioPlatform').value;
+  const lang=document.getElementById('bioLang').value;
+  const prompt=`Eres experto en optimización de perfiles de redes sociales.
+Analiza esta bio de ${platform}: "${bio}"
+Responde SOLO con JSON (sin backticks):
+{"score":75,"clarity":80,"impact":70,"cta":60,"keywords":75,"problems":["problema 1 en ${lang}","problema 2"],"suggestions":["sugerencia 1 en ${lang}","sugerencia 2"],"variations":[{"content":"bio mejorada 1 en ${lang}","hashtags":"","engagement":"high","reason":"por qué es mejor en ${lang}"},{"content":"bio mejorada 2","hashtags":"","engagement":"high","reason":"..."},{"content":"bio mejorada 3","hashtags":"","engagement":"medium","reason":"..."}]}
+- score, clarity, impact, cta, keywords: números del 0 al 100
+- problems: lista de 2-3 problemas encontrados en ${lang}
+- suggestions: lista de 2-3 sugerencias en ${lang}
+- variations: 3 bios mejoradas completamente diferentes en ${lang}, máx 150 chars cada una`;
+
+  document.getElementById('errBio').classList.add('hidden');
+  document.getElementById('ldBio').classList.remove('hidden');
+  document.getElementById('resBio').classList.add('hidden');
+  const iv=startLD('ldBioTxt','ldBioBar',['Analizando tu bio...','Evaluando claridad e impacto...','Identificando mejoras...','Generando versiones optimizadas...']);
+  let parsed,lastErr;
+  for(let a=0;a<3;a++){
+    try{parsed=parseJSON(await callAI(prompt));break;}
+    catch(e){lastErr=e;await new Promise(r=>setTimeout(r,900));}
+  }
+  clearInterval(iv);
+  document.getElementById('ldBio').classList.add('hidden');
+  if(!parsed?.score){const el=document.getElementById('errBio');el.textContent='⚠️ '+(lastErr?.message||'Error. Intenta de nuevo.');el.classList.remove('hidden');return;}
+
+  const scoreCard=document.getElementById('bioScoreCard');
+  const scoreColor=parsed.score>=70?'#10b981':parsed.score>=50?'#f59e0b':'#ef4444';
+  const scoreLabel=parsed.score>=70?'¡Buena bio! Con mejoras será excelente':parsed.score>=50?'Bio mediocre — necesita mejoras importantes':'Bio débil — definitivamente necesita cambios';
+  scoreCard.innerHTML=`
+    <div class="bio-score">
+      <div class="score-num" style="background:none;-webkit-text-fill-color:${scoreColor}">${parsed.score}</div>
+      <div class="score-lbl">${scoreLabel}</div>
+      <div class="score-bars" style="max-width:400px;margin:18px auto 0">
+        ${[['Claridad',parsed.clarity],['Impacto',parsed.impact],['Call to Action',parsed.cta],['Keywords',parsed.keywords]].map(([l,v])=>`
+        <div class="sbar-row"><span class="sbar-lbl">${l}</span><div class="sbar-track"><div class="sbar-fill" style="width:${v}%"></div></div><span class="sbar-val">${v}</span></div>`).join('')}
+      </div>
+    </div>
+    ${parsed.problems?.length?`<div style="margin-bottom:16px"><div class="sec-lbl" style="margin-bottom:10px">❌ Problemas encontrados</div>${parsed.problems.map(p=>`<div style="padding:8px 12px;background:rgba(239,68,68,.07);border-left:2px solid #ef4444;border-radius:6px;font-size:13px;color:#fca5a5;margin-bottom:6px">${p}</div>`).join('')}</div>`:''}
+    ${parsed.suggestions?.length?`<div><div class="sec-lbl" style="margin-bottom:10px">✅ Sugerencias clave</div>${parsed.suggestions.map(s=>`<div style="padding:8px 12px;background:rgba(16,185,129,.07);border-left:2px solid #10b981;border-radius:6px;font-size:13px;color:#6ee7b7;margin-bottom:6px">${s}</div>`).join('')}</div>`:''}`;
+
+  document.getElementById('resBio').classList.remove('hidden');
+  if(parsed.variations?.length){
+    variants=parsed.variations;
+    const bioGrid=document.getElementById('bioGrid');
+    bioGrid.innerHTML='';
+    parsed.variations.forEach((v,i)=>{
+      const c=document.createElement('div');c.className='vc';
+      c.innerHTML=`<div class="vc-top"><span class="vc-num">Opción ${i+1}</span><span class="badge bh">✨ Bio optimizada</span></div>
+      <div class="vc-content">${v.content}</div>
+      <div class="vc-reason">💡 ${v.reason}</div>
+      <div class="vc-actions"><button class="btn-cp" onclick="cpText('${v.content.replace(/'/g,"\\'")}',this)">📋 Copiar esta bio</button></div>`;
+      bioGrid.appendChild(c);
+    });
+    document.getElementById('bioVariants').classList.remove('hidden');
+  }
+  setTimeout(()=>document.getElementById('resBio').scrollIntoView({behavior:'smooth',block:'start'}),100);
+}
+
+function cpText(text,btn){
+  navigator.clipboard.writeText(text).then(()=>{const o=btn.textContent;btn.textContent='✓ ¡Copiado!';btn.classList.add('ok');setTimeout(()=>{btn.textContent=o;btn.classList.remove('ok');},2200);}).catch(()=>alert(text));
+}
+
+// ===================== CALENDARIO =====================
+async function getCalendar(){
+  const topic=document.getElementById('calTopic').value.trim();
+  if(!topic){const ta=document.getElementById('calTopic');ta.style.borderColor='#ef4444';ta.focus();setTimeout(()=>ta.style.borderColor='',2200);return;}
+  const platform=document.getElementById('calPlatform').value;
+  const freq=document.getElementById('calFreq').value;
+  const lang=document.getElementById('calLang').value;
+
+  const prompt=`Eres estratega de contenido para redes sociales.
+Crea un calendario de contenido de 4 semanas para ${platform} con frecuencia ${freq}.
+Negocio/nicho: ${topic}
+Responde SOLO con JSON (sin backticks, en ${lang}):
+{"weeks":[{"week":1,"title":"Semana 1: [tema general]","days":[{"day":"Lun","type":"C","idea":"idea de contenido concreta y específica"},{"day":"Mié","type":"H","idea":"..."},{"day":"Vie","type":"E","idea":"..."}]},{"week":2,...},{"week":3,...},{"week":4,...}]}
+Tipos: C=Caption/Post, H=Hook viral, E=Educativo, R=Reels/Video
+- Adapta días según frecuencia ${freq}
+- Ideas concretas y específicas para ${topic}
+- Variedad de tipos de contenido
+- Todo en ${lang}`;
+
+  document.getElementById('errCal').classList.add('hidden');
+  document.getElementById('ldCal').classList.remove('hidden');
+  document.getElementById('resCal').classList.add('hidden');
+  const iv=startLD('ldCalTxt','ldCalBar',['Planificando tu mes...','Diseñando estrategia de contenido...','Organizando temas por semana...','Añadiendo variedad de formatos...','Casi listo...']);
+  let parsed,lastErr;
+  for(let a=0;a<3;a++){
+    try{parsed=parseJSON(await callAI(prompt,2500));break;}
+    catch(e){lastErr=e;await new Promise(r=>setTimeout(r,900));}
+  }
+  clearInterval(iv);
+  document.getElementById('ldCal').classList.add('hidden');
+  if(!parsed?.weeks?.length){const el=document.getElementById('errCal');el.textContent='⚠️ '+(lastErr?.message||'Error. Intenta de nuevo.');el.classList.remove('hidden');return;}
+
+  calData=parsed.weeks;
+  const typeColors={C:'dt-c',H:'dt-h',E:'dt-e',R:'dt-r'};
+  const typeLabels={C:'Post',H:'Hook',E:'Edu',R:'Video'};
+  document.getElementById('calGrid').innerHTML=parsed.weeks.map(w=>`
+    <div class="week-block">
+      <div class="week-hdr">📅 ${w.title}</div>
+      <div class="day-list">${w.days.map(d=>`
+        <div class="day-item">
+          <span class="day-name">${d.day}</span>
+          <span class="day-type ${typeColors[d.type]||'dt-c'}">${typeLabels[d.type]||d.type}</span>
+          <span class="day-idea">${d.idea}</span>
+        </div>`).join('')}
+      </div>
+    </div>`).join('');
+  document.getElementById('resCal').classList.remove('hidden');
+  setTimeout(()=>document.getElementById('resCal').scrollIntoView({behavior:'smooth',block:'start'}),100);
+}
+
+function copyCalendar(){
+  let text='📅 CALENDARIO DE CONTENIDO 30 DÍAS\n\n';
+  calData.forEach(w=>{
+    text+=`\n${w.title}\n`;
+    w.days.forEach(d=>text+=`  ${d.day}: [${d.type}] ${d.idea}\n`);
+  });
+  navigator.clipboard.writeText(text).then(()=>alert('✓ Calendario copiado al portapapeles')).catch(()=>alert(text));
 }
 
 updateCC();
